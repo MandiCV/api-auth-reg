@@ -1,1 +1,1 @@
-#Servicio Web (WS) tipo RESTFUL
+#Servicio Web (WS) tipo RESTFul
