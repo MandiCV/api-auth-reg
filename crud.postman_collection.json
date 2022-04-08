@@ -13,7 +13,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDkwOTM2NTksImV4cCI6MTY0OTY5ODQ1OX0.3Rf9BWasd-S-3WTtRopz5oNACPE_glou2e1xNllgEog",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MjRkYWE2Yjc4OGM5YTBiNDA2OGM0NGMiLCJpYXQiOjE2NDkyNjE5MjgsImV4cCI6MTY0OTg2NjcyOH0.h7zpXUJ95WEeX_D6o-iyCmu-xhG_WhyTTD8kTfd287s",
 							"type": "string"
 						}
 					]
@@ -43,7 +43,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDkwOTM2NTksImV4cCI6MTY0OTY5ODQ1OX0.3Rf9BWasd-S-3WTtRopz5oNACPE_glou2e1xNllgEog",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MjRkYWE2Yjc4OGM5YTBiNDA2OGM0NGMiLCJpYXQiOjE2NDkyNjE5MjgsImV4cCI6MTY0OTg2NjcyOH0.h7zpXUJ95WEeX_D6o-iyCmu-xhG_WhyTTD8kTfd287s",
 							"type": "string"
 						}
 					]
@@ -51,7 +51,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:3000/api/user/624b39ab0d05522fd272edb0",
+					"raw": "https://localhost:3000/api/user/624c841568572e27db85cd29",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -60,7 +60,7 @@
 					"path": [
 						"api",
 						"user",
-						"624b39ab0d05522fd272edb0"
+						"624c841568572e27db85cd29"
 					]
 				}
 			},
@@ -74,7 +74,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDkwOTM2NTksImV4cCI6MTY0OTY5ODQ1OX0.3Rf9BWasd-S-3WTtRopz5oNACPE_glou2e1xNllgEog",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MjRkYWE2Yjc4OGM5YTBiNDA2OGM0NGMiLCJpYXQiOjE2NDkyNjE5MjgsImV4cCI6MTY0OTg2NjcyOH0.h7zpXUJ95WEeX_D6o-iyCmu-xhG_WhyTTD8kTfd287s",
 							"type": "string"
 						}
 					]
@@ -92,17 +92,17 @@
 					"urlencoded": [
 						{
 							"key": "nombre",
-							"value": "Ivan94",
+							"value": "Pepe Jons",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "ivan@gmail.com",
+							"value": "pj@gmail.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "123456",
+							"value": "1234PJ",
 							"type": "text"
 						}
 					]
@@ -130,7 +130,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDkwOTM2NTksImV4cCI6MTY0OTY5ODQ1OX0.3Rf9BWasd-S-3WTtRopz5oNACPE_glou2e1xNllgEog",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MjRkYWE2Yjc4OGM5YTBiNDA2OGM0NGMiLCJpYXQiOjE2NDkyNjE5MjgsImV4cCI6MTY0OTg2NjcyOH0.h7zpXUJ95WEeX_D6o-iyCmu-xhG_WhyTTD8kTfd287s",
 							"type": "string"
 						}
 					]
@@ -148,13 +148,13 @@
 					"urlencoded": [
 						{
 							"key": "nombre",
-							"value": "Francisco Maciá",
+							"value": "Amanda Cascales Valentín",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://localhost:3000/api/user/624b39ab0d05522fd272edb0",
+					"raw": "https://localhost:3000/api/user/624daa6b788c9a0b4068c44c",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -163,7 +163,7 @@
 					"path": [
 						"api",
 						"user",
-						"624b39ab0d05522fd272edb0"
+						"624daa6b788c9a0b4068c44c"
 					]
 				}
 			},
@@ -180,7 +180,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDkwOTM2NTksImV4cCI6MTY0OTY5ODQ1OX0.3Rf9BWasd-S-3WTtRopz5oNACPE_glou2e1xNllgEog",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MjRkYWE2Yjc4OGM5YTBiNDA2OGM0NGMiLCJpYXQiOjE2NDkyNjE5MjgsImV4cCI6MTY0OTg2NjcyOH0.h7zpXUJ95WEeX_D6o-iyCmu-xhG_WhyTTD8kTfd287s",
 							"type": "string"
 						}
 					]
@@ -194,7 +194,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:3000/api/user/624b6a664df1380cde0c7f82",
+					"raw": "https://localhost:3000/api/user/624c78f21363b620915e7059",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -203,7 +203,7 @@
 					"path": [
 						"api",
 						"user",
-						"624b6a664df1380cde0c7f82"
+						"624c78f21363b620915e7059"
 					]
 				}
 			},
@@ -220,7 +220,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDkwOTM2NTksImV4cCI6MTY0OTY5ODQ1OX0.3Rf9BWasd-S-3WTtRopz5oNACPE_glou2e1xNllgEog",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MjRkYWE2Yjc4OGM5YTBiNDA2OGM0NGMiLCJpYXQiOjE2NDkyNjE5MjgsImV4cCI6MTY0OTg2NjcyOH0.h7zpXUJ95WEeX_D6o-iyCmu-xhG_WhyTTD8kTfd287s",
 							"type": "string"
 						}
 					]
@@ -254,7 +254,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDkwOTM2NTksImV4cCI6MTY0OTY5ODQ1OX0.3Rf9BWasd-S-3WTtRopz5oNACPE_glou2e1xNllgEog",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MjRkYWE2Yjc4OGM5YTBiNDA2OGM0NGMiLCJpYXQiOjE2NDkyNjE5MjgsImV4cCI6MTY0OTg2NjcyOH0.h7zpXUJ95WEeX_D6o-iyCmu-xhG_WhyTTD8kTfd287s",
 							"type": "string"
 						}
 					]
@@ -287,12 +287,12 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "amandacascales@gmail.com",
+							"value": "acv41@alu.ua.es",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "1234",
+							"value": "1234ACV",
 							"type": "text"
 						}
 					]
@@ -315,9 +315,6 @@
 		{
 			"name": "/api/reg",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -335,7 +332,7 @@
 						},
 						{
 							"key": "password",
-							"value": "1234",
+							"value": "1234ACV",
 							"type": "text"
 						}
 					]

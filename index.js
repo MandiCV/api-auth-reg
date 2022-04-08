@@ -23,9 +23,6 @@ var db = mongojs("SD");
 var id = mongojs.ObjectID;
 
 const cors = require ('cors');
-const { Module } = require('module');
-const { isModuleNamespaceObject } = require('util/types');
-const { tokenExpTmp } = require('./config');
 
 
 
@@ -72,7 +69,7 @@ app.get('/api/user', auth,(req, res, next) =>{
 });
 
 app.get('/api/user/:id', auth, (req, res, next) =>{
-    db.usuario.findOne({_id: id(req.user.id)},(err, elemento) =>{
+    db.usuario.findOne({_id: id(req.params.id)},(err, elemento) =>{
         if (err) return next(err);
         res.json(elemento);
     });
@@ -83,17 +80,20 @@ app.post('/api/user', auth, (req, res, next) =>{
 
     if(!user.nombre) {
         res.status(400).json ({
+            result: 'KO',
             error: 'Bad Data',
             description: 'Se precisa un campo <nombre>'
         });
     } else if (!user.password) {
         res.status(400).json ({
+            result: 'KO',
             error: 'Bad Data',
             description: 'Se precisa un campo <password>'
         });
 
     } else if (!user.email) {
         res.status(400).json ({
+            result: 'KO',
             error: 'Bad Data',
             description: 'Se precisa un campo <email>'
         });
@@ -102,7 +102,7 @@ app.post('/api/user', auth, (req, res, next) =>{
             if (err) return next(err);
             if(usuario) {
                 res.status(400).json ({
-                    result: 'ko',
+                    result: 'KO',
                     error:'Bad Data',
                     message: 'Usuario ya creado'
                 });
@@ -119,7 +119,7 @@ app.post('/api/user', auth, (req, res, next) =>{
                 db.usuario.save(usuario, (err, coleccionGuardada) => {
                     if (err) return next(err);
                     res.json({
-                        result: 'ok',
+                        result: 'OK',
                         usuario: coleccionGuardada,
                     })
                 });
@@ -131,11 +131,11 @@ app.post('/api/user', auth, (req, res, next) =>{
 
 app.put('/api/user/:id', auth, (req, res, next) => {
     const user = req.body;
-    db.usuario.update({_id: id (req.user.id) },
+    db.usuario.update({_id: id (req.params.id) },
         {$set: user}, {safe: true, multi: false}, (err,msg) => {
             if(err) return next(err);
             res.json({
-                result: 'ok',
+                result: 'OK',
                 usuario: user
             }); 
         });
@@ -144,10 +144,10 @@ app.put('/api/user/:id', auth, (req, res, next) => {
 app.delete('/api/user/:id', auth, (req, res, next) => { //hacer como arriba
 
 
-    db.usuario.remove({_id: id(req.user.id)}, (err, resultado) =>{
+    db.usuario.remove({_id: id(req.params.id)}, (err, resultado) =>{
         if (err) return next(err);
         res.json({
-            result: 'ok',
+            result: 'OK',
             resultado: resultado
         });
     });
@@ -158,7 +158,7 @@ app.get('/api/auth',auth, (req, res, next) =>{
     db.usuario.find({},{nombre:1, email:1, _id:0}, (err,coleccion) =>{
         if (err) return next(err);
         res.json({
-            result: 'ok',
+            result: 'OK',
             usuario: coleccion
         }); //hacer como arriba
     });
@@ -171,12 +171,12 @@ app.get('/api/auth/me', auth, (req, res, next) =>{
         if (err) return next(err);
         if(user){
             res.json({
-                result: 'ok',
+                result: 'OK',
                 usuario: user
             });
         } else{
             res.status(200).json({
-                result: 'ko',
+                result: 'KO',
                 message:  `Usuario ${req.user.id} no encontrado` 
             })
         }
@@ -189,13 +189,13 @@ app.post('/api/auth', (req, res, next) => {
     db.usuario.findOne({ email: body.email }, (err, usuarioDB) =>{
         if(err) {
             return res.status(500).json({
-                ok:false,
+                result: 'KO',
                 err: err
             })
         }
         if(!usuarioDB){
             return res.status(400).json({
-                ok:false,
+                result: 'KO',
                 err: {
                     message: "Usuario incorrecto"
                 }
@@ -205,23 +205,20 @@ app.post('/api/auth', (req, res, next) => {
             .then(isOK =>{
                 if(isOK){   
                     usuarioDB.lastLogin = moment().unix();
-                    db.usuario.update({_id: id (usuarioDB.id) },
-                    {$set: usuarioDB}, {safe: true, multi: false}, (err,msg) => {
+                    db.usuario.updateOne({_id: id (usuarioDB._id) },
+                    {$set: {lastLogin: usuarioDB.lastLogin}}, {safe: true, multi: false}, (err,msg) => {
                         if(err) return next(err);
+                        const token = TokenService.crearToken( usuarioDB );        
+                        res.json({
+                            result: 'OK',
+                            usuario: usuarioDB,
+                            token: token
+                        });
                     });
-                    const token = TokenService.crearToken( usuarioDB );        
-                    res.json({
-                        result: 'ok',
-                        usuario: usuarioDB,
-                        token: token
-                    });
-                }else {
-                    res.status(200).json({
-                        result: 'ko',
-                        message:  `Usuario  no encontrado` 
-                    })
+ 
                 }
             })
+            .catch( err => console.log(err));
     })
 });
 app.post('/api/reg', (req, res, next) => {
@@ -229,17 +226,20 @@ app.post('/api/reg', (req, res, next) => {
 
     if(!user.nombre) {
         res.status(400).json ({
+            result:'KO',
             error: 'Bad Data',
             description: 'Se precisa un campo <nombre>'
         });
     } else if (!user.password) {
         res.status(400).json ({
+            result: 'KO',
             error: 'Bad Data',
             description: 'Se precisa un campo <password>'
         });
 
     } else if (!user.email) {
         res.status(400).json ({
+            result: 'KO',
             error: 'Bad Data',
             description: 'Se precisa un campo <email>'
         });
@@ -260,7 +260,7 @@ app.post('/api/reg', (req, res, next) => {
             if (err) return next(err);
             const token = TokenService.crearToken( coleccionGuardada );
             res.json({
-                result: 'ok',
+                result: 'OK',
                 usuario: coleccionGuardada,
                 token: token
             })
