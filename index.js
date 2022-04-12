@@ -182,6 +182,7 @@ app.get('/api/auth/me', auth, (req, res, next) =>{
         }
     });
 });
+
 app.post('/api/auth', (req, res, next) => {
 
     const body = req.body;
@@ -221,7 +222,8 @@ app.post('/api/auth', (req, res, next) => {
             .catch( err => console.log(err));
     })
 });
-app.post('/api/reg', (req, res, next) => {
+
+app.post('/api/auth/reg', (req, res, next) => {
     const  user = req.body;
 
     if(!user.nombre) {
