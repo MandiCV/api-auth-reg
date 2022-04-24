@@ -186,8 +186,8 @@ app.get('/api/auth/me', auth, (req, res, next) =>{
 app.post('/api/auth', (req, res, next) => {
 
     const body = req.body;
-    console.log(body.password);
-    console.log(body.email);
+    console.log("BODY");
+    console.log(body);
     db.usuario.findOne({ email: body.email }, (err, usuarioDB) =>{
         if(err) {
             return res.status(500).json({
@@ -203,11 +203,7 @@ app.post('/api/auth', (req, res, next) => {
                 }
             })
         }
-        console.log("CONTRASEÑA DEL BODY: TEST");
-
-        console.log("CONTRASEÑA BD");
-        console.log(usuarioDB.password);
-            PassService.comparaPassword(body.password, usuarioDB.password)
+    PassService.comparaPassword(body.password, usuarioDB.password)
             .then(isOK =>{
                 if(isOK){   
                     usuarioDB.lastLogin = moment().unix();
