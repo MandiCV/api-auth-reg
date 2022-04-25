@@ -186,8 +186,6 @@ app.get('/api/auth/me', auth, (req, res, next) =>{
 app.post('/api/auth', (req, res, next) => {
 
     const body = req.body;
-    console.log("BODY");
-    console.log(body);
     db.usuario.findOne({ email: body.email }, (err, usuarioDB) =>{
         if(err) {
             return res.status(500).json({
